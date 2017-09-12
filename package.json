@@ -1,0 +1,25 @@
+{
+  "name": "care-styleguide",
+  "version": "1.0.0",
+  "description": "A comprehensive coding style guide for developing web apps using Typescript, React, and JSX",
+  "scripts": {
+    "renumber": "node renumber.js > README.new && mv README.new README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rackerlabs/care-styleguide.git"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "jsx",
+    "style",
+    "guide"
+  ],
+  "author": "Nando Pena",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rackerlabs/care-styleguide/issues"
+  },
+  "homepage": "https://github.com/rackerlabs/care-styleguide#readme"
+}
