@@ -18,14 +18,14 @@ function renumber (file) {
   let renumbered = ''
   let bullet
 
-  const rxRefLabel = /- \[TS (\d{1,2}\.\d{1,2})/
-  const rxRefAnchor = /ts-(\d{4})/g
-  const rxRefBare = /- \[TS\]/
+  const rxRefLabel = /- \[TS (\d{1,2}\.\d{1,2})/i
+  const rxRefAnchor = /ts-(\d{4})/ig
+  const rxRefBare = /- \[TS\]/i
 
   let newFile = file.split('\n').map(line => {
     const isSection = line.startsWith('## ');
     const isBullet = line.startsWith('  - [')
-    const isBare = line.startsWith('  - [TS]')
+    const isBare = line.toLowerCase().startsWith('  - [ts]')
 
     if (isSection) {
       section += 1

@@ -4,7 +4,6 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## TypeScript
 
-  1. [Browser Compatibility](#browser-compatibility)
   1. [Types](#types)
   1. [References](#references)
   1. [Objects](#objects)
@@ -23,6 +22,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
+  1. [Line Length](#line-length)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
   1. [Type Casting & Coercion](#type-casting-coercion)
@@ -34,18 +34,14 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
   1. [Type Annotations](#type-annotations)
   1. [Interfaces](#interfaces)
   1. [Organization](#organization)
+  1. [Files](#files)
+  1. [Browser Compatibility](#browser-compatibility)
   1. [ECMAScript 5 Compatibility](#ecmascript-5-compatibility)
   1. [ECMAScript 6 Styles](#ecmascript-6-styles)
   1. [Typescript 1.5 Styles](#typescript-1.5-styles)
   1. [Formatting](#formatting)
   1. [License](#license)
 
-
-## Browser Compatibility
-
-  - [TS 1.01](#ts-0101)<a name='ts-0101'></a> - Target evergreen browsers ie >= 11
-  - [TS 1.02](#ts-0102)<a name='ts-0102'></a> - Target modern browsers ie >= 9 if it is necessary for a project
-  - [TS 1.03](#ts-0103)<a name='ts-0103'></a> - Avoid targeting older browsers ie < 9 if at all possible
 
 ## Types
 
@@ -68,9 +64,9 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
   - **Complex**: When you access a complex type you work on a reference to its value.
 
-    - `object`
-    - `array`
-    - `function`
+    + `object`
+    + `array`
+    + `function`
 
     ```ts
     const foo = [1, 2];
@@ -86,7 +82,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## References
 
-  - [TS 3.01](#ts-0301)<a name='ts-0301'></a> - Use `const` for all of your references; avoid using `var`.
+  - [TS 2.01](#ts-0201)<a name='ts-0201'></a> - Use `const` for all of your references; avoid using `var`.
 
     > Why? This ensures that you can't reassign your references (mutation), which can lead to bugs and difficult to comprehend code.
 
@@ -100,7 +96,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const b = 2;
     ```
 
-  - [TS 3.02](#ts-0302)<a name='ts-0302'></a> - If you must mutate references, use `let` instead of `var`.
+  - [TS 2.02](#ts-0202)<a name='ts-0202'></a> - If you must mutate references, use `let` instead of `var`.
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
 
@@ -122,7 +118,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 3.03](#ts-0303)<a name='ts-0303'></a> - Note that both `let` and `const` are block-scoped.
+  - [TS 2.03](#ts-0203)<a name='ts-0203'></a> - Note that both `let` and `const` are block-scoped.
 
     ```ts
     // const and let only exist in the blocks they are defined in.
@@ -139,7 +135,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Objects
 
-  - [TS 4.01](#ts-0401)<a name='ts-0401'></a> - Use the literal syntax for object creation.
+  - [TS 3.01](#ts-0301)<a name='ts-0301'></a> - Use the literal syntax for object creation.
 
     ```ts
     // bad
@@ -149,7 +145,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const item = {};
     ```
 
-  - [TS 4.02](#ts-0402)<a name='ts-0402'></a> - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
+  - [TS 3.02](#ts-0302)<a name='ts-0302'></a> - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
 
     ```ts
     // bad
@@ -165,7 +161,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     };
     ```
 
-  - [TS 4.03](#ts-0403)<a name='ts-0403'></a> - Use readable synonyms in place of reserved words.
+  - [TS 3.03](#ts-0303)<a name='ts-0303'></a> - Use readable synonyms in place of reserved words.
 
     ```ts
     // bad
@@ -186,7 +182,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
   <a name="es6-computed-properties"></a>
 
-  - [TS 4.04](#ts-0404)<a name='ts-0404'></a> - Use computed property names when creating objects with dynamic property names.
+  - [TS 3.04](#ts-0304)<a name='ts-0304'></a> - Use computed property names when creating objects with dynamic property names.
 
     > Why? They allow you to define all the properties of an object in one place.
 
@@ -214,7 +210,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
   <a name="es6-object-shorthand"></a>
 
-  - [TS 4.05](#ts-0405)<a name='ts-0405'></a> - Use arrow functions for object methods instead of shorthand properties or an anonymous function.
+  - [TS 3.05](#ts-0305)<a name='ts-0305'></a> - Use arrow functions for object methods instead of shorthand properties or an anonymous function.
 
     ```ts
     // bad
@@ -242,7 +238,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
   <a name="es6-object-concise"></a>
 
-  - [TS 4.06](#ts-0406)<a name='ts-0406'></a> - Use property value shorthand.
+  - [TS 3.06](#ts-0306)<a name='ts-0306'></a> - Use property value shorthand.
 
     > Why? It is shorter to write and descriptive.
 
@@ -260,7 +256,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     };
     ```
 
-  - [TS 4.07](#ts-0407)<a name='ts-0407'></a> - Group your shorthand properties at the beginning of your object declaration.
+  - [TS 3.07](#ts-0307)<a name='ts-0307'></a> - Group your shorthand properties at the beginning of your object declaration.
 
     > Why? It's easier to tell which properties are using the shorthand.
 
@@ -294,7 +290,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Arrays
 
-  - [TS 5.01](#ts-0501)<a name='ts-0501'></a> - Use the literal syntax for array creation.
+  - [TS 4.01](#ts-0401)<a name='ts-0401'></a> - Use the literal syntax for array creation.
 
     ```ts
     // bad
@@ -304,7 +300,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const items = [];
     ```
 
-  - [TS 5.02](#ts-0502)<a name='ts-0502'></a> - Use Array#push instead of direct assignment to add items to an array.
+  - [TS 4.02](#ts-0402)<a name='ts-0402'></a> - Use Array#push instead of direct assignment to add items to an array.
 
     ```ts
     const someStack = [];
@@ -318,7 +314,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
   <a name="es6-array-spreads"></a>
 
-  - [TS 5.03](#ts-0503)<a name='ts-0503'></a> - Use array spreads `...` to copy arrays.
+  - [TS 4.03](#ts-0403)<a name='ts-0403'></a> - Use array spreads `...` to copy arrays.
 
     ```ts
     // bad
@@ -334,14 +330,14 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const itemsCopy = [...items];
     ```
 
-  - [TS 5.04](#ts-0504)<a name='ts-0504'></a> - To convert an array-like object to an array, use Array#from.
+  - [TS 4.04](#ts-0404)<a name='ts-0404'></a> - To convert an array-like object to an array, use Array#from.
 
     ```ts
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
     ```
 
-  - [TS 5.05](#ts-0505)<a name='ts-0505'></a> - Annotate arrays as `foos: Foo[]` instead of `foos:Array<foo>`
+  - [TS 4.05](#ts-0405)<a name='ts-0405'></a> - Annotate arrays as `foos: Foo[]` instead of `foos:Array<foo>`
 
     > Why? Easier to read. Used by the TypeScript team. Makes it easier to know item is an array as most devs are conditioned to detect [].
 
@@ -358,7 +354,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Destructuring
 
-  - [TS 6.01](#ts-0601)<a name='ts-0601'></a> - Use object destructuring when accessing and using multiple properties of an object.
+  - [TS 5.01](#ts-0501)<a name='ts-0501'></a> - Use object destructuring when accessing and using multiple properties of an object.
 
     > Why? Destructuring saves you from creating temporary references for those properties.
 
@@ -389,7 +385,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 6.02](#ts-0602)<a name='ts-0602'></a> - Use array destructuring.
+  - [TS 5.02](#ts-0502)<a name='ts-0502'></a> - Use array destructuring.
 
     ```ts
     const arr = [1, 2, 3, 4];
@@ -402,7 +398,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const [first, second] = arr;
     ```
 
-  - [TS 6.03](#ts-0603)<a name='ts-0603'></a> - Use object destructuring for multiple return values, not array destructuring.
+  - [TS 5.03](#ts-0503)<a name='ts-0503'></a> - Use object destructuring for multiple return values, not array destructuring.
 
     > Why? You can add new properties over time or change the order of things without breaking call site
 
@@ -435,19 +431,28 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Strings
 
-  - [TS 7.01](#ts-0701)<a name='ts-0701'></a> - Use single quotes `''` for strings.
+  - [TS 6.01](#ts-0601)<a name='ts-0601'></a> - Use single quotes `''` for all strings, and use double-quotes `""` for strings within strings.
 
     ```ts
     // bad
-    const name = "Capt. Janeway";
+    const greeting = "Hello World!";
 
     // good
-    const name = 'Capt. Janeway';
+    const greeting = 'Hello World!';
+
+    // bad
+    let html = "<div class='bold'>Hello World</div>";
+
+    // bad
+    let html = '<div class=\'bold\'>Hello World</div>';
+
+    // good
+    let html = '<div class="bold">Hello World</div>';
     ```
 
-  - [TS 7.02](#ts-0702)<a name='ts-0702'></a> - Strings longer than 80 characters should be written across multiple lines using string concatenation.
+  - [TS 6.02](#ts-0602)<a name='ts-0602'></a> - Strings longer than 80 characters should be written across multiple lines using string concatenation.
 
-  - [TS 7.03](#ts-0703)<a name='ts-0703'></a> - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - [TS 6.03](#ts-0603)<a name='ts-0603'></a> - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
     ```ts
     // bad
@@ -467,7 +472,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
   <a name="es6-template-literals"></a>
 
-  - [TS 7.04](#ts-0704)<a name='ts-0704'></a> - When programmatically building up strings, use template strings instead of concatenation.
+  - [TS 6.04](#ts-0604)<a name='ts-0604'></a> - When programmatically building up strings, use template strings instead of concatenation.
 
     > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
@@ -499,7 +504,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Functions
 
-  - [TS 8.01](#ts-0801)<a name='ts-0801'></a> - Use function expressions instead of function declarations.
+  - [TS 7.01](#ts-0701)<a name='ts-0701'></a> - Use function expressions instead of function declarations.
 
     > Why? Badly placed Function Declarations are misleading and there are few (if any) situations where you can’t use a Function Expression assigned to a variable instead. See [function-declarations-vs-function-expressions](https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/).
 
@@ -516,7 +521,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     };
     ```
 
-  - [TS 8.02](#ts-0802)<a name='ts-0802'></a> - Function expressions:
+  - [TS 7.02](#ts-0702)<a name='ts-0702'></a> - Function expressions:
 
     ```ts
     // immediately-invoked function expression (IIFE)
@@ -525,9 +530,9 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     })();
     ```
 
-  - [TS 8.03](#ts-0803)<a name='ts-0803'></a> - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+  - [TS 7.03](#ts-0703)<a name='ts-0703'></a> - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
 
-  - [TS 8.04](#ts-0804)<a name='ts-0804'></a> - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - [TS 7.04](#ts-0704)<a name='ts-0704'></a> - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```ts
     // bad
@@ -554,7 +559,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 8.05](#ts-0805)<a name='ts-0805'></a> - Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+  - [TS 7.05](#ts-0705)<a name='ts-0705'></a> - Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
     ```ts
     // bad
@@ -570,7 +575,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
   <a name="es6-rest"></a>
 
-  - [TS 8.06](#ts-0806)<a name='ts-0806'></a> - Never use `arguments`, opt to use rest syntax `...` instead.
+  - [TS 7.06](#ts-0706)<a name='ts-0706'></a> - Never use `arguments`, opt to use rest syntax `...` instead.
 
     > Why? `...` is explicit about which arguments you want pulled. Plus rest arguments are a real Array and not Array-like like `arguments
 
@@ -592,7 +597,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     ```
   <a name="es6-default-parameters"></a>
 
-  - [TS 8.07](#ts-0807)<a name='ts-0807'></a> - Use default parameter syntax rather than mutating function arguments.
+  - [TS 7.07](#ts-0707)<a name='ts-0707'></a> - Use default parameter syntax rather than mutating function arguments.
 
     ```ts
     // bad
@@ -621,7 +626,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 8.08](#ts-0808)<a name='ts-0808'></a> - Avoid side effects with default parameters
+  - [TS 7.08](#ts-0708)<a name='ts-0708'></a> - Avoid side effects with default parameters
 
     > Why? They are confusing to reason about.
 
@@ -645,7 +650,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Arrow Functions
 
-  - [TS 9.01](#ts-0901)<a name='ts-0901'></a> - When you must use function expressions (as when passing an anonymous function), use arrow function notation.
+  - [TS 8.01](#ts-0801)<a name='ts-0801'></a> - When you must use function expressions (as when passing an anonymous function), use arrow function notation.
 
     > Why? It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
 
@@ -670,7 +675,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     [1, 2, 3].map((x) => x * x;);
     ```
 
-  - [TS 9.02](#ts-0902)<a name='ts-0902'></a> - If the function body fits on one line and there is only a single argument, feel free to omit the braces and parentheses, and use the implicit return. Otherwise, add the parentheses, braces, and use a `return` statement.
+  - [TS 8.02](#ts-0802)<a name='ts-0802'></a> - If the function body fits on one line and there is only a single argument, feel free to omit the braces and parentheses, and use the implicit return. Otherwise, add the parentheses, braces, and use a `return` statement.
 
     > Why? Syntactic sugar. It reads well when multiple functions are chained together.
 
@@ -691,7 +696,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Constructors
 
-  - [TS 10.01](#ts-1001)<a name='ts-1001'></a> - Always use `class`. Avoid manipulating `prototype` directly.
+  - [TS 9.01](#ts-0901)<a name='ts-0901'></a> - Always use `class`. Avoid manipulating `prototype` directly.
 
     > Why? `class` syntax is more concise and easier to reason about.
 
@@ -731,7 +736,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 10.02](#ts-1002)<a name='ts-1002'></a> - Use `extends` for inheritance.
+  - [TS 9.02](#ts-0902)<a name='ts-0902'></a> - Use `extends` for inheritance.
 
     > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
 
@@ -765,7 +770,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 10.03](#ts-1003)<a name='ts-1003'></a> - Methods can return `this` to help with method chaining.
+  - [TS 9.03](#ts-0903)<a name='ts-0903'></a> - Methods can return `this` to help with method chaining.
 
     ```ts
     // bad
@@ -811,7 +816,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
       .setHeight(20);
     ```
 
-  - [TS 10.04](#ts-1004)<a name='ts-1004'></a> - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [TS 9.04](#ts-0904)<a name='ts-0904'></a> - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
     ```ts
     class Jedi {
@@ -837,14 +842,14 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 10.05](#ts-1005)<a name='ts-1005'></a> - Typescript classes placeholder.
+  - [TS 9.05](#ts-0905)<a name='ts-0905'></a> - Typescript classes placeholder.
 
 **[⬆ back to top](#table-of-contents)**
 
 
 ## Modules
 
-  - [TS 11.01](#ts-1101)<a name='ts-1101'></a> - Use modules (`import`/`export`) over a non-standard module system.
+  - [TS 10.01](#ts-1001)<a name='ts-1001'></a> - Use modules (`import`/`export`) over a non-standard module system.
 
     > Why? Modules are the future, let's start using the future now.
 
@@ -862,7 +867,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     export default es6;
     ```
 
-  - [TS 11.02](#ts-1102)<a name='ts-1102'></a> - And do not export directly from an import.
+  - [TS 10.02](#ts-1002)<a name='ts-1002'></a> - And do not export directly from an import.
 
     > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
 
@@ -877,7 +882,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     export default es6;
     ```
 
-  - [TS 11.03](#ts-1103)<a name='ts-1103'></a> - Use TypeScript module import for non-ES6 libraries with type definitions. Check [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) for available type definition files.
+  - [TS 10.03](#ts-1003)<a name='ts-1003'></a> - Use TypeScript module import for non-ES6 libraries with type definitions. Check [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) for available type definition files.
 
     > Why? This provides type information from external modules when available
 
@@ -891,7 +896,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     import lodash = require('lodash')
     ```
 
-  - [TS 11.04](#ts-1104)<a name='ts-1104'></a> - Group module imports by type and then alphabetic by variable name. Follow these rules for ordering your module imports:
+  - [TS 10.04](#ts-1004)<a name='ts-1004'></a> - Group module imports by type and then alphabetic by variable name. Follow these rules for ordering your module imports:
     + External libraries with type definitions
     + Internal typescript modules with wildcard imports
     + Internal typescript modules without wildcard imports
@@ -928,7 +933,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Iterators and Generators
 
-  - [TS 12.01](#ts-1201)<a name='ts-1201'></a> - Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`.
+  - [TS 11.01](#ts-1101)<a name='ts-1101'></a> - Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`.
 
     > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
 
@@ -955,7 +960,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     sum === 15;
     ```
 
-  - [TS 12.02](#ts-1202)<a name='ts-1202'></a> - Don't use generators for now.
+  - [TS 11.02](#ts-1102)<a name='ts-1102'></a> - Don't use generators for now.
 
     > Why? They don't transpile well to ES5.
 
@@ -964,7 +969,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Properties
 
-  - [TS 13.01](#ts-1301)<a name='ts-1301'></a> - Use dot notation when accessing properties.
+  - [TS 12.01](#ts-1201)<a name='ts-1201'></a> - Use dot notation when accessing properties.
 
     ```ts
     const luke = {
@@ -979,7 +984,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const isJedi = luke.jedi;
     ```
 
-  - [TS 13.02](#ts-1302)<a name='ts-1302'></a> - Use subscript notation `[]` when accessing properties with a variable.
+  - [TS 12.02](#ts-1202)<a name='ts-1202'></a> - Use subscript notation `[]` when accessing properties with a variable.
 
     ```ts
     const luke = {
@@ -1001,7 +1006,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Variables
 
-  - [TS 14.01](#ts-1401)<a name='ts-1401'></a> - Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - [TS 13.01](#ts-1301)<a name='ts-1301'></a> - Always use `const` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
     ```ts
     // bad
@@ -1011,7 +1016,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const superPower = new SuperPower();
     ```
 
-  - [TS 14.02](#ts-1402)<a name='ts-1402'></a> - Use one `const` declaration per variable.
+  - [TS 13.02](#ts-1302)<a name='ts-1302'></a> - Use one `const` declaration per variable.
 
     > Why? It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
 
@@ -1033,7 +1038,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const dragonball = 'z';
     ```
 
-  - [TS 14.03](#ts-1403)<a name='ts-1403'></a> - Group all your `const`s and then group all your `let`s.
+  - [TS 13.03](#ts-1303)<a name='ts-1303'></a> - Group all your `const`s and then group all your `let`s.
 
     > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
@@ -1058,7 +1063,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     let length;
     ```
 
-  - [TS 14.04](#ts-1404)<a name='ts-1404'></a> - Assign variables where you need them, but place them in a reasonable place.
+  - [TS 13.04](#ts-1304)<a name='ts-1304'></a> - Assign variables where you need them, but place them in a reasonable place.
 
      > Why? `let` and `const` are block scoped and not function scoped.
 
@@ -1123,7 +1128,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Hoisting
 
-  - [TS 15.01](#ts-1501)<a name='ts-1501'></a> - `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [TS 14.01](#ts-1401)<a name='ts-1401'></a> - `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
 
     ```ts
     // we know this wouldn't work (assuming there
@@ -1166,7 +1171,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 15.02](#ts-1502)<a name='ts-1502'></a> - Anonymous function expressions hoist their variable name, but not the function assignment.
+  - [TS 14.02](#ts-1402)<a name='ts-1402'></a> - Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```ts
     function example() {
@@ -1184,7 +1189,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 15.03](#ts-1503)<a name='ts-1503'></a> - Named function expressions hoist the variable name, not the function name or the function body.
+  - [TS 14.03](#ts-1403)<a name='ts-1403'></a> - Named function expressions hoist the variable name, not the function name or the function body.
 
     ```ts
     function example() {
@@ -1220,7 +1225,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 15.04](#ts-1504)<a name='ts-1504'></a> - Function declarations hoist their name and the function body.
+  - [TS 14.04](#ts-1404)<a name='ts-1404'></a> - Function declarations hoist their name and the function body.
 
     ```ts
     function example() {
@@ -1243,9 +1248,9 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Comparison Operators & Equality
 
-  - [TS 16.01](#ts-1601)<a name='ts-1601'></a> - Use `===` and `!==` over `==` and `!=`.
+  - [TS 15.01](#ts-1501)<a name='ts-1501'></a> - Use `===` and `!==` over `==` and `!=`.
 
-  - [TS 16.02](#ts-1602)<a name='ts-1602'></a> - Conditional statements such as the `if` statement evaulate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
+  - [TS 15.02](#ts-1502)<a name='ts-1502'></a> - Conditional statements such as the `if` statement evaulate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
     + **Undefined** evaluates to **false**
@@ -1261,7 +1266,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 16.03](#ts-1603)<a name='ts-1603'></a> - Use shortcuts.
+  - [TS 15.03](#ts-1503)<a name='ts-1503'></a> - Use shortcuts.
 
     ```ts
     // bad
@@ -1285,14 +1290,14 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 16.04](#ts-1604)<a name='ts-1604'></a> - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+  - [TS 15.04](#ts-1504)<a name='ts-1504'></a> - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
 **[⬆ back to top](#table-of-contents)**
 
 
 ## Blocks
 
-  - [TS 17.01](#ts-1701)<a name='ts-1701'></a> - Use braces with multi-line blocks or omit braces for two line blocks.
+  - [TS 16.01](#ts-1601)<a name='ts-1601'></a> - Use braces with multi-line blocks or omit braces for two line blocks.
 
     ```ts
     // bad
@@ -1320,7 +1325,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 17.02](#ts-1702)<a name='ts-1702'></a> - If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
+  - [TS 16.02](#ts-1602)<a name='ts-1602'></a> - If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
     `if` block's closing brace.
 
     ```ts
@@ -1342,7 +1347,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 17.03](#ts-1703)<a name='ts-1703'></a> - If you're using multi-line blocks with `if` and `else`, do not omit curly braces.
+  - [TS 16.03](#ts-1603)<a name='ts-1603'></a> - If you're using multi-line blocks with `if` and `else`, do not omit curly braces.
 
     > Why? Omitting curly braces in multi-line blocks can easily cause unexpected behavior.
 
@@ -1367,7 +1372,15 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Comments
 
-  - [TS 18.01](#ts-1801)<a name='ts-1801'></a> - Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - [TS 17.01](#ts-1701)<a name='ts-1701'></a> - Comments are strongly encouraged when a line/block of code's purpose or intention is not obvious.
+
+  - [TS 17.02](#ts-1702)<a name='ts-1702'></a> - Comments should be clear and meaningful.
+
+  - [TS 17.03](#ts-1703)<a name='ts-1703'></a> - Comments should be in [JSDoc](http://usejsdoc.org/) format where applicable.
+
+    > Why? JSDocs can be interpreted by numerous IDEs, providing intellisense.
+
+  - [TS 17.04](#ts-1704)<a name='ts-1704'></a> - Use block comments `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
 
     ```ts
     // bad
@@ -1401,7 +1414,51 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 18.02](#ts-1802)<a name='ts-1802'></a> - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - [TS 17.05](#ts-1705)<a name='ts-1705'></a> - All classes must have block comments `/**...*/` for all public variables and functions including class description
+
+    ```ts
+    /**
+     * Contains properties of a Person.
+     */
+    class Person {
+        /**
+         * Returns a new Person with the specified name.
+         *
+         * @param name The name of the new Person.
+         */
+        static GetPerson(name: string): Person {
+            return new Person(name);
+        }
+
+        /**
+         * @param name The name of the new Person.
+         */
+        constructor(public name: string) { }
+
+        /**
+         * Instructs this Person to walk for a certain amount
+         * of time.
+         *
+         * @param millis The number of milliseconds the Person
+         * should walk.
+         */
+        walkFor(millis: number): void {
+            console.log(this.name + ' is now walking.');
+
+            setTimeout(() => {
+                console.log(this.name + ' has stopped walking.');
+            }, millis);
+        }
+    }
+    ```
+
+  - [TS 17.06](#ts-1706)<a name='ts-1706'></a> - All public functions should have comments
+
+  - [TS 17.07](#ts-1707)<a name='ts-1707'></a> - All functions should have a comment explaining what the function does.
+
+  - [TS 17.08](#ts-1708)<a name='ts-1708'></a> - All function input parameters should be annotated with `@param`
+
+  - [TS 17.09](#ts-1709)<a name='ts-1709'></a> - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
 
     ```ts
     // bad
@@ -1435,9 +1492,9 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 18.03](#ts-1803)<a name='ts-1803'></a> - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - [TS 17.10](#ts-1710)<a name='ts-1710'></a> - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
 
-  - [TS 18.04](#ts-1804)<a name='ts-1804'></a> - Use `// FIXME:` to annotate problems.
+  - [TS 17.11](#ts-1711)<a name='ts-1711'></a> - Use `// FIXME:` to annotate problems.
 
     ```ts
     class Calculator {
@@ -1450,7 +1507,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 18.05](#ts-1805)<a name='ts-1805'></a> - Use `// TODO:` to annotate solutions to problems.
+  - [TS 17.12](#ts-1712)<a name='ts-1712'></a> - Use `// TODO:` to annotate solutions to problems.
 
     ```ts
     class Calculator {
@@ -1468,7 +1525,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Whitespace
 
-  - [TS 19.01](#ts-1901)<a name='ts-1901'></a> - Use soft tabs set to 2 spaces.
+  - [TS 18.01](#ts-1801)<a name='ts-1801'></a> - Use soft tabs set to 2 spaces.
 
     ```ts
     // bad
@@ -1493,7 +1550,11 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 19.02](#ts-1902)<a name='ts-1902'></a> - Place 1 space before the leading brace.
+  - [TS 18.02](#ts-1802)<a name='ts-1802'></a> - Never use tabs
+
+    > Why? Tabs can lead to trouble when opening files in differenct IDEs/ text editors. Most text editors have a configuration option to change tabs to spaces.
+
+  - [TS 18.03](#ts-1803)<a name='ts-1803'></a> - Place 1 space before the leading brace.
 
     ```ts
     // bad
@@ -1523,7 +1584,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     });
     ```
 
-  - [TS 19.03](#ts-1903)<a name='ts-1903'></a> - Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
+  - [TS 18.04](#ts-1804)<a name='ts-1804'></a> - Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
 
     ```ts
     // bad
@@ -1555,7 +1616,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 19.04](#ts-1904)<a name='ts-1904'></a> - Offset operators with spaces.
+  - [TS 18.05](#ts-1805)<a name='ts-1805'></a> - Offset operators with spaces.
 
     ```ts
     // bad
@@ -1565,7 +1626,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     const x = y + 5;
     ```
 
-  - [TS 19.05](#ts-1905)<a name='ts-1905'></a> - End files with a single newline character.
+  - [TS 18.06](#ts-1806)<a name='ts-1806'></a> - End files with a single newline character.
 
     ```ts
     // bad
@@ -1589,7 +1650,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     })(this);↵
     ```
 
-  - [TS 19.06](#ts-1906)<a name='ts-1906'></a> - Use indentation when making long method chains. Use a leading dot, which
+  - [TS 18.07](#ts-1807)<a name='ts-1807'></a> - Use indentation when making long method chains. Use a leading dot, which
     emphasizes that the line is a method call, not a new statement.
 
     ```ts
@@ -1629,7 +1690,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
         .call(tron.led);
     ```
 
-  - [TS 19.07](#ts-1907)<a name='ts-1907'></a> - Leave a blank line after the opening of a block and before the closing of a block
+  - [TS 18.08](#ts-1808)<a name='ts-1808'></a> - Leave a blank line after the opening of a block and before the closing of a block
 
     ```ts
     // bad
@@ -1657,7 +1718,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
     }
     ```
 
-  - [TS 19.08](#ts-1908)<a name='ts-1908'></a> - Leave a blank line after blocks and before the next statement.
+  - [TS 18.09](#ts-1809)<a name='ts-1809'></a> - Leave a blank line after blocks and before the next statement.
 
     ```ts
     // bad
@@ -1697,6 +1758,14 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
     return obj;
     ```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Line Length
+
+  - [TS 19.01](#ts-1901)<a name='ts-1901'></a> - Lines must not be longer than 140 characters.
+  - [TS 19.02](#ts-1902)<a name='ts-1902'></a> - When a statement runs over 140 characters on a line, it should be broken up, ideally after a comma or operator.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2423,16 +2492,33 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 **[⬆ back to top](#table-of-contents)**
 
 
+## Files
+
+  - [TS 31.01](#ts-3101)<a name='ts-3101'></a> - All TypeScript files must have a ".ts" extension.
+  - [TS 31.02](#ts-3102)<a name='ts-3102'></a> - They should be all lower case, and only include letters, numbers, and periods.
+  - [TS 31.03](#ts-3103)<a name='ts-3103'></a> - It is OK (even recommended) to separate words with periods (e.g. my.view.html).
+  - [TS 31.04](#ts-3104)<a name='ts-3104'></a> - All files should end in a new line. This is necessary for some Unix systems.
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Browser Compatibility
+
+- [TS 1.01](#ts-0101)<a name='ts-0101'></a> - Target evergreen browsers ie >= 11
+- [TS 1.02](#ts-0102)<a name='ts-0102'></a> - Target modern browsers ie >= 9 if it is necessary for a project
+- [TS 1.03](#ts-0103)<a name='ts-0103'></a> - Avoid targeting older browsers ie < 9 if at all possible
+
+
 ## ECMAScript 5 Compatibility
 
-  - [TS 31.01](#ts-3101)<a name='ts-3101'></a> - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
+  - [TS 33.01](#ts-3301)<a name='ts-3301'></a> - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
 
 **[⬆ back to top](#table-of-contents)**
 
 
 ## ECMAScript 6 Styles
 
-  - [TS 32.01](#ts-3201)<a name='ts-3201'></a> - This is a collection of links to the various es6 features.
+  - [TS 34.01](#ts-3401)<a name='ts-3401'></a> - This is a collection of links to the various es6 features.
 
     1. [Arrow Functions](#arrow-functions)
     1. [Classes](#constructors)
@@ -2453,7 +2539,7 @@ A comprehensive coding style guide for developing web apps using Typescript, Rea
 
 ## Typescript 1.5 Styles
 
-  - [TS 33.01](#ts-3301)<a name='ts-3301'></a> - This is a collection of links to the various es6 features.
+  - [TS 35.01](#ts-3501)<a name='ts-3501'></a> - This is a collection of links to the various es6 features.
 
     1. [Type Annotations](#ts-type-annotations)
     1. [Interfaces](#ts-interfaces)
