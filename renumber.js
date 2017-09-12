@@ -18,15 +18,20 @@ function renumber (file) {
   let renumbered = ''
   let bullet
 
-  const rxRefLabel = /- \[\[TS (\d{1,2}\.\d{1,2})/
+  const rxRefLabel = /- \[TS (\d{1,2}\.\d{1,2})/
   const rxRefAnchor = /ts-(\d{4})/g
+  const rxRefBare = /- \[TS\]/
 
   let newFile = file.split('\n').map(line => {
-    if (line.startsWith('## ')) {
+    const isSection = line.startsWith('## ');
+    const isBullet = line.startsWith('  - [')
+    const isBare = line.startsWith('  - [TS]')
+
+    if (isSection) {
       section += 1
       bullet = 0
       return line
-    } else if (line.startsWith('  - [[TS ')) {
+    } else if (isBullet) {
       bullet += 1
     } else {
       return line
@@ -34,10 +39,17 @@ function renumber (file) {
 
     const sectionPadded = String(section).padStart(2, '0')
     const bulletPadded = String(bullet).padStart(2, '0')
+    const refDec = `TS ${section}.${bulletPadded}`
+    const refPad = `ts-${sectionPadded}${bulletPadded}`
 
-    return line
-      .replace(rxRefLabel, `- [[TS ${section}.${bulletPadded}`)
-      .replace(rxRefAnchor, `ts-${sectionPadded}${bulletPadded}`)
+    if (isBare) {
+      return line
+        .replace(rxRefBare, `- [${refDec}](#${refPad})<a name='${refPad}'></a> -`)
+    } else {
+      return line
+        .replace(rxRefLabel, `- [TS ${section}.${bulletPadded}`)
+        .replace(rxRefAnchor, `ts-${sectionPadded}${bulletPadded}`)
+    }
   })
 
   console.log(newFile.join('\n').trim())
