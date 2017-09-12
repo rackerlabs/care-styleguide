@@ -36,7 +36,7 @@ function renumber (file) {
     const bulletPadded = String(bullet).padStart(2, '0')
 
     return line
-      .replace(rxRefLabel, `  - [[TS ${section}.${bulletPadded}`)
+      .replace(rxRefLabel, `- [[TS ${section}.${bulletPadded}`)
       .replace(rxRefAnchor, `ts-${sectionPadded}${bulletPadded}`)
   })
 
